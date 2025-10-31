@@ -88,7 +88,7 @@ export function createEmailRoutes(gmailService: GmailService, dbService: Databas
               const fullMessage = await gmailService.getMessage(decryptedToken, message.id);
               const parsed = gmailService.parseEmailFromMessage(fullMessage);
 
-              const emailId = uuidv4();
+              const emailId = crypto.randomUUID();
               await dbService.createEmail({
                 email_id: emailId,
                 user_id: user.user_id,
