@@ -2,7 +2,6 @@ import { Hono } from 'hono';
 import { GmailService } from '../services/gmail';
 import { DatabaseService } from '../services/database';
 import { tokenService } from '../services/token';
-import { v4 as uuidv4 } from 'crypto';
 
 export function createNotificationRoutes(
   gmailService: GmailService,
