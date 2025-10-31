@@ -4,7 +4,6 @@ import { DatabaseService } from '../services/database';
 import { JWTManager } from '../middleware/auth';
 import { tokenService } from '../services/token';
 import { getUser } from '../middleware/auth';
-import { v4 as uuidv4 } from 'crypto';
 
 export function createAuthRoutes(
   gmailService: GmailService,
