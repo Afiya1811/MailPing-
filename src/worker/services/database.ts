@@ -298,4 +298,12 @@ export class DatabaseService {
 
     return (result?.count || 0) > 0;
   }
+
+  async getActiveUsers(): Promise<User[]> {
+    const result = await this.db
+      .prepare('SELECT * FROM users WHERE google_access_token IS NOT NULL')
+      .all<User>();
+
+    return result.results || [];
+  }
 }
