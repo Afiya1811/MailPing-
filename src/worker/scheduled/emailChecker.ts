@@ -38,7 +38,7 @@ export async function checkNewEmails(env: any): Promise<void> {
               const fullMessage = await gmailService.getMessage(decryptedToken, message.id);
               const parsed = gmailService.parseEmailFromMessage(fullMessage);
 
-              const emailId = uuidv4();
+              const emailId = crypto.randomUUID();
               await dbService.createEmail({
                 email_id: emailId,
                 user_id: user.user_id,
@@ -59,7 +59,7 @@ export async function checkNewEmails(env: any): Promise<void> {
 
               // Log notification for frontend to pick up
               await dbService.logNotification({
-                id: uuidv4(),
+                id: crypto.randomUUID(),
                 user_id: user.user_id,
                 email_id: emailId,
                 notification_type: 'in_app',
