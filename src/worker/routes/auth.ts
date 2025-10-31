@@ -37,7 +37,7 @@ export function createAuthRoutes(
 
       if (!user) {
         // Create new user
-        const userId = uuidv4();
+        const userId = crypto.randomUUID();
         const encryptedAccessToken = await tokenService.encrypt(tokens.access_token);
         const encryptedRefreshToken = tokens.refresh_token
           ? await tokenService.encrypt(tokens.refresh_token)
