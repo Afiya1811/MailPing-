@@ -5,7 +5,6 @@ import { tokenService } from '../services/token';
 import { getUser } from '../middleware/auth';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { v4 as uuidv4 } from 'crypto';
 
 export function createEmailRoutes(gmailService: GmailService, dbService: DatabaseService): Hono {
   const router = new Hono();
