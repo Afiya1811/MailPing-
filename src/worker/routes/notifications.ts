@@ -17,9 +17,7 @@ export function createNotificationRoutes(
       let totalNewEmails = 0;
 
       // Get all active users who have Gmail connected
-      // For now, we'll do a simple implementation
-      // In production, you'd want to paginate through users
-      const allUsersResult = await dbService.getActiveUsers?.() || [];
+      const allUsersResult = await dbService.getActiveUsers();
 
       for (const user of allUsersResult) {
         try {
