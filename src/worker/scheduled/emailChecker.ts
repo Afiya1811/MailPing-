@@ -4,7 +4,6 @@
 import { GmailService } from '../services/gmail';
 import { DatabaseService } from '../services/database';
 import { tokenService } from '../services/token';
-import { v4 as uuidv4 } from 'crypto';
 
 export async function checkNewEmails(env: any): Promise<void> {
   try {
